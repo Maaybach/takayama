@@ -1,0 +1,1620 @@
+/* ===== TAKAYAMA — SAKURA EDITION ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+:root {
+    --background: #fff8fc;
+    --surface: #ffffff;
+    --surface-pink: #fff0f7;
+    --text: #48283d;
+    --muted: #98788b;
+    --accent: #ed70ad;
+    --accent-dark: #d94d91;
+    --accent-light: #ffc5e1;
+    --border: rgba(217, 77, 145, 0.19);
+    --shadow: 0 15px 45px rgba(196, 91, 145, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background:
+        radial-gradient(ellipse at 8% 12%, rgba(255, 180, 218, 0.48), transparent 30%),
+        radial-gradient(ellipse at 92% 28%, rgba(255, 215, 236, 0.65), transparent 28%),
+        radial-gradient(ellipse at 50% 80%, rgba(255, 225, 241, 0.7), transparent 38%),
+        var(--background);
+    color: var(--text);
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+}
+
+/* Motif japonais discret sur toute la page */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.16;
+    background-image:
+        radial-gradient(circle at 50% 50%, transparent 0 13px, #ed70ad 14px 15px, transparent 16px),
+        radial-gradient(circle at 0 0, transparent 0 13px, #ed70ad 14px 15px, transparent 16px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+/* ===== NAVIGATION ===== */
+.navbar {
+    min-height: 90px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.84);
+    backdrop-filter: blur(18px);
+}
+
+.navbar::after {
+    content: "🌸　✿　🌸";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 15px;
+    background: var(--background);
+    color: var(--accent);
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.logo {
+    color: var(--text);
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.logo:hover {
+    color: var(--accent-dark);
+}
+
+.logo span {
+    color: var(--accent-dark);
+}
+
+.nav-label {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+/* ===== HERO ===== */
+.hero {
+    width: min(100% - 40px, 1160px);
+    min-height: calc(100vh - 90px);
+    margin: auto;
+    padding: 95px 0 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border: 1px solid rgba(217, 77, 145, 0.25);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 5px 20px rgba(217, 77, 145, 0.08);
+    color: var(--accent-dark);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #ef77b1;
+    box-shadow: 0 0 12px rgba(230, 83, 156, 0.7);
+}
+
+h1 {
+    margin-top: 38px;
+    font-size: clamp(46px, 8vw, 94px);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -4px;
+    color: #522c45;
+    text-shadow: 0 5px 25px rgba(237, 112, 173, 0.12);
+}
+
+h1 span {
+    color: var(--accent-dark);
+    background: linear-gradient(120deg, #ee76b3, #d74791, #ff9bcb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    max-width: 600px;
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* ===== BOUTONS ===== */
+.primary-button {
+    margin-top: 35px;
+    padding: 18px 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 7px;
+    background: linear-gradient(135deg, #f58cbd, #df579c);
+    color: white;
+    box-shadow: 0 10px 26px rgba(217, 77, 145, 0.24);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s, filter 0.25s;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(217, 77, 145, 0.32);
+    filter: saturate(1.1);
+}
+
+.primary-button:active {
+    transform: translateY(-1px);
+}
+
+.primary-button span {
+    font-size: 18px;
+}
+
+/* ===== BANDEAU BAS ===== */
+.hero-footer {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 75px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #a47f96;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+/* ===== CONFIGURATEUR ===== */
+.configurator {
+    width: 100%;
+    margin-top: 100px;
+    padding: 55px 35px;
+    align-self: stretch;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(255, 199, 226, 0.35), transparent 35%),
+        rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(217, 77, 145, 0.24);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+/* Coins décoratifs */
+.configurator::before,
+.configurator::after {
+    content: "✿";
+    position: absolute;
+    color: rgba(237, 112, 173, 0.19);
+    font-size: 110px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.configurator::before {
+    top: 8px;
+    right: 15px;
+}
+
+.configurator::after {
+    bottom: 5px;
+    left: 12px;
+}
+
+.configurator-header {
+    margin-bottom: 38px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.section-tag {
+    color: var(--accent-dark);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.configurator-header h2 {
+    margin-top: 18px;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: var(--text);
+}
+
+.configurator-header h2 span {
+    color: var(--accent-dark);
+}
+
+.configurator-header p {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 25px;
+    border: 1px solid rgba(217, 77, 145, 0.19);
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #fff6fb);
+    box-shadow: 0 5px 18px rgba(196, 91, 145, 0.055);
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.option-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(217, 77, 145, 0.5);
+    box-shadow: 0 12px 25px rgba(196, 91, 145, 0.12);
+}
+
+.option-card > span {
+    color: #a65c86;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.option-card select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid rgba(217, 77, 145, 0.22);
+    border-radius: 7px;
+    outline: none;
+    background: #fffafd;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.option-card select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(237, 112, 173, 0.13);
+}
+
+#generate-button {
+    margin: 30px auto 0;
+    position: relative;
+    z-index: 1;
+}
+
+.generation-message {
+    margin-top: 22px;
+    color: #98788b;
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== SELECTION DU TEXTE ===== */
+::selection {
+    background: #f6b3d5;
+    color: #522c45;
+}
+
+/* ===== ACCESSIBILITÉ ===== */
+:focus-visible {
+    outline: 2px solid var(--accent-dark);
+    outline-offset: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 650px) {
+    .navbar {
+        min-height: 72px;
+        padding: 0 22px;
+    }
+
+    .logo {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .nav-label {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hero {
+        padding-top: 80px;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-footer {
+        padding-top: 55px;
+        font-size: 8px;
+    }
+
+    .configurator {
+        padding: 35px 18px;
+        margin-top: 65px;
+        border-radius: 13px;
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .configurator-header h2 {
+        letter-spacing: -1px;
+    }
+
+    .option-card {
+        padding: 19px;
+    }
+
+    .configurator::before,
+    .configurator::after {
+        font-size: 70px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== TAKAYAMA SAKURA — DECORATIONS ===== */
+
+.hero {
+    isolation: isolate;
+}
+
+.hero::before,
+.hero::after {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.hero::before {
+    content: "🌸";
+    top: 150px;
+    left: -65px;
+    font-size: clamp(100px, 15vw, 190px);
+    opacity: 0.23;
+    transform: rotate(-24deg);
+    filter: drop-shadow(0 12px 22px rgba(217, 77, 145, 0.12));
+}
+
+.hero::after {
+    content: "🌸";
+    top: 360px;
+    right: -55px;
+    font-size: clamp(90px, 13vw, 165px);
+    opacity: 0.25;
+    transform: rotate(22deg);
+    filter: drop-shadow(0 12px 22px rgba(217, 77, 145, 0.12));
+}
+
+.japan-decoration {
+    position: absolute;
+    top: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+    color: #df75a9;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.decoration-left {
+    left: 2%;
+    transform: rotate(-7deg);
+}
+
+.decoration-right {
+    right: 2%;
+    transform: rotate(7deg);
+}
+
+.decor-kanji {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(48px, 6vw, 76px);
+    font-weight: 900;
+    color: #e7a0c4;
+    text-shadow:
+        2px 2px 0 #fff,
+        4px 5px 0 rgba(217, 77, 145, 0.15);
+}
+
+.decor-line {
+    width: 1px;
+    height: 65px;
+    background: linear-gradient(transparent, #e7a0c4, transparent);
+}
+
+.decor-flower {
+    font-size: 30px;
+    color: #ed70ad;
+}
+
+.decor-small {
+    writing-mode: vertical-rl;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #b981a0;
+}
+
+.hero-emblem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+    color: #d94d91;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 8px;
+}
+
+.emblem-separator {
+    color: #f0a0c7;
+    font-size: 15px;
+}
+
+.hero-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 25px;
+    color: #e9a0c5;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.ornament-flower {
+    color: #df579c;
+    font-size: 21px;
+}
+
+.hero-highlights {
+    width: 100%;
+    margin-top: 65px;
+    padding: 27px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 22px;
+    border: 1px solid rgba(217, 77, 145, 0.19);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 12px 35px rgba(196, 91, 145, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.highlight-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+}
+
+.highlight-icon {
+    font-size: 27px;
+    filter: drop-shadow(0 3px 5px rgba(217, 77, 145, 0.15));
+}
+
+.highlight-title {
+    color: #a94f7f;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+}
+
+.highlight-description {
+    color: #a58a9a;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.highlight-divider {
+    width: 1px;
+    height: 55px;
+    background: linear-gradient(transparent, #efb2d1, transparent);
+}
+
+.hero-footer {
+    border-top: 1px solid rgba(217, 77, 145, 0.16);
+    margin-top: 45px;
+    padding-top: 25px;
+}
+
+.logo {
+    text-shadow: 0 3px 15px rgba(217, 77, 145, 0.1);
+}
+
+@media (max-width: 900px) {
+    .decoration-left {
+        left: 0;
+    }
+
+    .decoration-right {
+        right: 0;
+    }
+
+    .japan-decoration {
+        opacity: 0.45;
+    }
+
+    .hero::before {
+        left: -40px;
+    }
+
+    .hero::after {
+        right: -40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .japan-decoration {
+        display: none;
+    }
+
+    .hero::before {
+        top: 190px;
+        left: -35px;
+        font-size: 80px;
+    }
+
+    .hero::after {
+        top: 390px;
+        right: -30px;
+        font-size: 75px;
+    }
+
+    .hero-emblem {
+        margin-top: 28px;
+    }
+
+    .hero-highlights {
+        margin-top: 45px;
+        padding: 22px 10px;
+        gap: 9px;
+    }
+
+    .highlight-title {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .highlight-description {
+        font-size: 9px;
+    }
+
+    .highlight-divider {
+        height: 48px;
+    }
+
+    .hero-footer {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* ===== TAKAYAMA — JAPANESE NIGHT EDITION ===== */
+
+:root {
+    color-scheme: dark;
+}
+
+body {
+    color: #f6e9e9;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(145, 20, 39, 0.32), transparent 48%),
+        radial-gradient(ellipse at 0% 65%, rgba(180, 30, 55, 0.12), transparent 38%),
+        linear-gradient(145deg, #100d11 0%, #1c1016 48%, #0c0b0e 100%);
+}
+
+/* Barre de navigation */
+.navbar {
+    background: rgba(15, 11, 15, 0.88);
+    border-bottom: 1px solid rgba(219, 55, 75, 0.35);
+    backdrop-filter: blur(18px);
+}
+
+.logo {
+    color: #fff0f0;
+}
+
+.logo span {
+    color: #e43e50;
+}
+
+.nav-label {
+    color: #d5a9ad;
+}
+
+/* Grand espace central */
+.hero {
+    color: #f7e9e9;
+}
+
+.hero-tag {
+    color: #f2b4ba;
+    background: rgba(163, 30, 48, 0.16);
+    border: 1px solid rgba(227, 63, 82, 0.4);
+}
+
+.status-dot {
+    background: #f04458;
+    box-shadow: 0 0 12px rgba(240, 68, 88, 0.8);
+}
+
+/* Titres */
+.hero h1,
+.hero h1 span {
+    color: #fff0f0;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #ff5264, #e7a0b5, #ffcfb8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Texte */
+.hero-description {
+    color: #c5b0b6;
+}
+
+/* Emblèmes japonais */
+.hero-emblem {
+    color: #f04b5e;
+}
+
+.emblem-separator,
+.ornament-flower {
+    color: #f6a4b5;
+}
+
+.hero-ornament {
+    color: #8c3444;
+}
+
+.japan-decoration {
+    color: #f04b5e;
+}
+
+.decor-kanji {
+    color: #d8374b;
+    text-shadow:
+        2px 2px 0 #2a151a,
+        0 0 24px rgba(227, 55, 76, 0.22);
+}
+
+.decor-line {
+    background: linear-gradient(transparent, #d8374b, transparent);
+}
+
+.decor-flower {
+    color: #ff879c;
+}
+
+.decor-small {
+    color: #c59ba4;
+}
+
+/* Fleurs décoratives */
+.hero::before,
+.hero::after {
+    filter: drop-shadow(0 0 20px rgba(226, 46, 72, 0.25));
+    opacity: 0.32;
+}
+
+/* Lanternes japonaises décoratives */
+.hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "🏮";
+    top: 125px;
+    left: 2%;
+    font-size: clamp(65px, 8vw, 105px);
+    transform: rotate(-8deg);
+}
+
+.hero::after {
+    content: "🏮";
+    top: 330px;
+    right: 2%;
+    font-size: clamp(60px, 7vw, 95px);
+    transform: rotate(8deg);
+}
+
+/* Cartes de présentation */
+.hero-highlights {
+    background: linear-gradient(
+        135deg,
+        rgba(43, 23, 31, 0.96),
+        rgba(24, 17, 23, 0.96)
+    );
+    border: 1px solid rgba(218, 58, 79, 0.32);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25);
+}
+
+.highlight-title {
+    color: #ff8798;
+}
+
+.highlight-description {
+    color: #c3aab2;
+}
+
+.highlight-divider {
+    background: linear-gradient(transparent, #8e3446, transparent);
+}
+
+.highlight-icon {
+    filter: drop-shadow(0 0 8px rgba(237, 70, 94, 0.22));
+}
+
+/* Bouton principal */
+.primary-button {
+    color: #fff5f5;
+    background: linear-gradient(135deg, #b51f36, #e74357);
+    border: 1px solid rgba(255, 160, 170, 0.28);
+    box-shadow: 0 8px 28px rgba(174, 28, 49, 0.3);
+}
+
+.primary-button:hover {
+    background: linear-gradient(135deg, #d42b43, #f35b6c);
+    box-shadow: 0 10px 35px rgba(225, 47, 70, 0.4);
+}
+
+/* Bas de page */
+.hero-footer {
+    border-top: 1px solid rgba(218, 58, 79, 0.25);
+    color: #bd9da5;
+}
+
+/* Champs et options du configurateur */
+.configurator,
+.generator-card,
+.option-card {
+    color: #f7e9e9;
+    background: rgba(29, 20, 27, 0.96);
+    border-color: rgba(218, 58, 79, 0.28);
+}
+
+input,
+select,
+textarea {
+    color: #fff0f0;
+    background: #171116;
+    border-color: #58303a;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #ed5267;
+    outline-color: rgba(237, 82, 103, 0.25);
+}
+
+@media (max-width: 600px) {
+    .hero::before {
+        top: 150px;
+        left: 0;
+        font-size: 55px;
+    }
+
+    .hero::after {
+        top: 350px;
+        right: 0;
+        font-size: 50px;
+    }
+}
+
+
+/* ===== TAKAYAMA — IMMERSIVE JAPAN ATMOSPHERE ===== */
+
+/* Motifs japonais discrets sur tout le fond */
+body {
+    background-color: #100b10;
+    background-image:
+        radial-gradient(ellipse at 50% 15%, rgba(150, 22, 42, 0.22), transparent 45%),
+        radial-gradient(ellipse at 5% 80%, rgba(115, 22, 42, 0.16), transparent 35%),
+        repeating-radial-gradient(
+            circle at 0 100%,
+            transparent 0,
+            transparent 25px,
+            rgba(201, 48, 67, 0.035) 26px,
+            transparent 28px,
+            transparent 48px
+        );
+    background-attachment: fixed;
+}
+
+/* Lueur rouge sur les bords de la page */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(153, 22, 43, 0.09),
+            transparent 18%,
+            transparent 82%,
+            rgba(153, 22, 43, 0.09)
+        );
+}
+
+/* Cadre raffiné autour de la zone principale */
+.hero {
+    border-left: 1px solid rgba(218, 58, 79, 0.16);
+    border-right: 1px solid rgba(218, 58, 79, 0.16);
+    box-shadow:
+        -25px 0 55px rgba(120, 18, 38, 0.035),
+        25px 0 55px rgba(120, 18, 38, 0.035);
+}
+
+/* Détails lumineux sous les titres */
+.hero h1 {
+    text-shadow: 0 5px 35px rgba(0, 0, 0, 0.35);
+}
+
+.hero h1 span {
+    filter: drop-shadow(0 0 18px rgba(222, 47, 69, 0.12));
+}
+
+/* Bouton plus premium */
+.primary-button {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    letter-spacing: 1.5px;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+}
+
+/* Cartes avec une finition plus élégante */
+.hero-highlights {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.hero-highlights::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #b52d45,
+        #f18b9b,
+        #b52d45,
+        transparent
+    );
+    opacity: 0.85;
+}
+
+.highlight-item {
+    transition: transform 0.25s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-4px);
+}
+
+/* Petits séparateurs rouge sombre */
+.hero-ornament {
+    opacity: 0.9;
+}
+
+.ornament-flower {
+    text-shadow: 0 0 14px rgba(240, 75, 94, 0.45);
+}
+
+/* Navigation plus travaillée */
+.navbar {
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
+}
+
+.nav-label {
+    letter-spacing: 3px;
+}
+
+/* Sélection de texte aux couleurs TAKAYAMA */
+::selection {
+    color: #fff5f5;
+    background: #a9233a;
+}
+
+/* Barre de défilement assortie */
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #100b10;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #702032;
+    border-radius: 8px;
+    border: 2px solid #100b10;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c43850;
+}
+
+/* Confort sur téléphone */
+@media (max-width: 600px) {
+    .hero {
+        border-left: 0;
+        border-right: 0;
+        box-shadow: none;
+    }
+
+    .nav-label {
+        letter-spacing: 1px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .primary-button,
+    .highlight-item {
+        transition: none;
+    }
+}
+
+/* ===== TAKAYAMA — JAPANESE BACKGROUND ===== */
+
+body {
+    background-color: #10070b;
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(10, 5, 9, 0.30),
+            rgba(10, 5, 9, 0.58)
+        ),
+        url("japan-background.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Le décor reste derrière le contenu */
+.navbar {
+    background: rgba(10, 5, 9, 0.78);
+    backdrop-filter: blur(10px);
+}
+
+.hero {
+    background: transparent;
+}
+
+/* Lisibilité du texte */
+.hero h1,
+.hero h1 span {
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.75);
+}
+
+.hero-description {
+    color: #f0dfe2;
+    text-shadow: 0 2px 10px #10070b;
+}
+
+/* Panneau inférieur */
+.hero-highlights {
+    background: rgba(12, 6, 10, 0.84);
+    border-color: rgba(231, 48, 67, 0.65);
+    backdrop-filter: blur(12px);
+}
+
+/* Évite que les anciens décors CSS surchargent l'image */
+.hero::before,
+.hero::after {
+    content: none;
+}
+
+@media (max-width: 700px) {
+    body {
+        background-position: center;
+        background-attachment: scroll;
+    }
+}
+
+/* ===== TAKAYAMA — METALLIC 3D TITLE ===== */
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 112px);
+    font-weight: 1000;
+    line-height: 1;
+    letter-spacing: -3px;
+    color: #fff0e9;
+    text-transform: uppercase;
+    text-shadow:
+        0 1px 0 #f8c8c5,
+        0 2px 0 #dca1a0,
+        0 3px 0 #bd5b65,
+        0 4px 0 #8e2638,
+        0 5px 0 #601725,
+        0 6px 0 #3a101a,
+        0 12px 20px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(239, 48, 72, 0.3);
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        180deg,
+        #fff8f0 0%,
+        #f5d5d1 28%,
+        #e94b60 58%,
+        #991b31 82%,
+        #4b101d 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 5px 0 #4b101d)
+            drop-shadow(0 12px 15px rgba(0, 0, 0, 0.65));
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        letter-spacing: -1px;
+        line-height: 1.08;
+    }
+}
+
+/* ===== TAKAYAMA - AMBIANCE JAPONAISE PREMIUM ===== */
+
+:root {
+    --takayama-red: #e32645;
+    --takayama-pink: #ff668b;
+    --takayama-dark: #09070b;
+    --takayama-white: #f8f3f5;
+}
+
+/* Transitions générales */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--takayama-dark);
+    color: var(--takayama-white);
+}
+
+/* Titres avec une finition lumineuse */
+h1,
+h2 {
+    text-shadow:
+        0 0 12px rgba(227, 38, 69, 0.22),
+        0 0 28px rgba(227, 38, 69, 0.12);
+}
+
+/* Effet premium sur les boutons */
+button,
+.btn,
+button[type="submit"] {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+button:hover,
+.btn:hover,
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(227, 38, 69, 0.22);
+}
+
+/* Cartes avec un effet subtil */
+.card,
+.panel,
+.generator-card {
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.card:hover,
+.panel:hover,
+.generator-card:hover {
+    border-color: rgba(227, 38, 69, 0.45);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* Sélection de texte aux couleurs TAKAYAMA */
+::selection {
+    background: var(--takayama-red);
+    color: white;
+}
+
+/* Barre de défilement */
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0c090e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6e172b;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--takayama-red);
+}
+
+/* Respect des préférences de mouvement */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ===== TAKAYAMA - JAPANESE NIGHT EDITION ===== */
+
+body {
+    background-color: #09070b;
+    background-image:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(180, 20, 48, 0.20) 0%,
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 100% 50%,
+            rgba(100, 12, 35, 0.12) 0%,
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #10090e 0%,
+            #09070b 55%,
+            #060508 100%
+        );
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #f8f3f5;
+}
+
+/* Lueur rouge japonaise */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+
+    background-image:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(227, 38, 69, 0.12),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(227, 38, 69, 0.10),
+            transparent 30%
+        );
+}
+
+/* Palette Takayama */
+
+:root {
+    --takayama-red: #e32645;
+    --takayama-pink: #ff668b;
+    --takayama-dark: #09070b;
+    --takayama-white: #f8f3f5;
+}
+
+/* ===== TAKAYAMA - CARTES ET DÉTAILS PREMIUM ===== */
+
+.highlight-item {
+    position: relative;
+    padding: 22px;
+    border: 1px solid rgba(255, 102, 139, 0.18);
+    border-radius: 14px;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.035),
+        rgba(227, 38, 69, 0.025)
+    );
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 102, 139, 0.5);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+.highlight-icon {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--takayama-pink);
+    font-size: 25px;
+    text-shadow: 0 0 16px rgba(255, 102, 139, 0.3);
+}
+
+.highlight-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--takayama-white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.highlight-description {
+    display: block;
+    color: rgba(255, 244, 250, 0.62);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .highlight-item {
+        transition: none;
+    }
+
+    .highlight-item:hover {
+        transform: none;
+    }
+}
+
+/* ===== TAKAYAMA - SAKURA PETALS ANIMATION ===== */
+
+.sakura-petals {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.sakura-petals span {
+    position: absolute;
+    top: -50px;
+    display: block;
+    font-size: 17px;
+    opacity: 0;
+    animation: takayama-sakura-fall 12s linear infinite;
+    filter: drop-shadow(0 0 5px rgba(255, 102, 139, 0.25));
+}
+
+.sakura-petals span:nth-child(1) {
+    left: 8%;
+    animation-delay: 0s;
+    animation-duration: 13s;
+}
+
+.sakura-petals span:nth-child(2) {
+    left: 20%;
+    animation-delay: 3s;
+    animation-duration: 16s;
+}
+
+.sakura-petals span:nth-child(3) {
+    left: 34%;
+    animation-delay: 6s;
+    animation-duration: 12s;
+}
+
+.sakura-petals span:nth-child(4) {
+    left: 48%;
+    animation-delay: 1s;
+    animation-duration: 15s;
+}
+
+.sakura-petals span:nth-child(5) {
+    left: 63%;
+    animation-delay: 5s;
+    animation-duration: 14s;
+}
+
+.sakura-petals span:nth-child(6) {
+    left: 75%;
+    animation-delay: 2s;
+    animation-duration: 17s;
+}
+
+.sakura-petals span:nth-child(7) {
+    left: 87%;
+    animation-delay: 7s;
+    animation-duration: 13s;
+}
+
+.sakura-petals span:nth-child(8) {
+    left: 96%;
+    animation-delay: 4s;
+    animation-duration: 16s;
+}
+
+@keyframes takayama-sakura-fall {
+    0% {
+        transform: translate3d(0, -30px, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: translate3d(-35px, 50vh, 0) rotate(180deg);
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translate3d(35px, 110vh, 0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Désactiver l'animation si le visiteur préfère moins de mouvement */
+@media (prefers-reduced-motion: reduce) {
+    .sakura-petals {
+        display: none;
+    }
+}
+
+/* ===== TAKAYAMA - CONFIGURATOR PREMIUM ===== */
+
+.configurator {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 90%);
+    margin: 90px auto 60px;
+    padding: clamp(22px, 5vw, 48px);
+    border: 1px solid rgba(255, 102, 139, 0.22);
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        rgba(25, 12, 21, 0.96),
+        rgba(9, 7, 11, 0.97)
+    );
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3);
+}
+
+.configurator-header {
+    margin-bottom: 35px;
+}
+
+.section-tag {
+    color: var(--takayama-pink);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.configurator-header h2 {
+    margin: 16px 0;
+    color: var(--takayama-white);
+    font-size: clamp(28px, 5vw, 46px);
+    letter-spacing: 2px;
+}
+
+.configurator-header h2 span {
+    color: var(--takayama-red);
+}
+
+.configurator-header p {
+    color: rgba(255, 244, 250, 0.65);
+    line-height: 1.7;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    border: 1px solid rgba(255, 102, 139, 0.15);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    transition: border-color 0.25s ease,
+                background 0.25s ease;
+}
+
+.option-card:hover,
+.option-card:focus-within {
+    border-color: rgba(255, 102, 139, 0.5);
+    background: rgba(227, 38, 69, 0.045);
+}
+
+.option-card > span {
+    color: rgba(255, 244, 250, 0.8);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.option-card select {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px;
+    border: 1px solid rgba(255, 102, 139, 0.25);
+    border-radius: 8px;
+    outline: none;
+    background: #130d13;
+    color: #fff4fa;
+    font: inherit;
+    cursor: pointer;
+}
+
+.option-card select:focus {
+    border-color: var(--takayama-pink);
+    box-shadow: 0 0 0 3px rgba(255, 102, 139, 0.1);
+}
+
+.primary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+    min-height: 56px;
+    margin-top: 28px;
+    padding: 16px 22px;
+    border: 1px solid var(--takayama-red);
+    border-radius: 10px;
+    background: linear-gradient(110deg, #a91535, #e32645);
+    color: white;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(227, 38, 69, 0.25);
+}
+
+.generation-message {
+    margin-top: 18px;
+    color: var(--takayama-pink);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+@media (max-width: 650px) {
+    .configurator {
+        width: 92%;
+        margin-top: 50px;
+        padding: 22px 16px;
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .option-card {
+        padding: 16px;
+    }
+}
