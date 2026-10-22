@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     natural: {
       label: "NATUREL",
       title: "Sakura Horizon",
-      background:
-        "linear-gradient(180deg, #9b7caa 0%, #d7a0bc 48%, #573353 100%)",
+      background: "linear-gradient(180deg, #9b7caa 0%, #d7a0bc 48%, #573353 100%)",
       sun: "#ffd6e7",
       mountainBack: "#75456e",
       mountainFront: "#27172f",
@@ -28,8 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     blue: {
       label: "BLEU",
       title: "Yoru Mirage",
-      background:
-        "linear-gradient(180deg, #152d61 0%, #397fc0 48%, #15253f 100%)",
+      background: "linear-gradient(180deg, #152d61 0%, #397fc0 48%, #15253f 100%)",
       sun: "#b4efff",
       mountainBack: "#345b9d",
       mountainFront: "#131b35",
@@ -38,8 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pink: {
       label: "ROSE",
       title: "Sakura Dream",
-      background:
-        "linear-gradient(180deg, #6e345e 0%, #e87eb2 52%, #4b203e 100%)",
+      background: "linear-gradient(180deg, #6e345e 0%, #e87eb2 52%, #4b203e 100%)",
       sun: "#ffe0ef",
       mountainBack: "#a54883",
       mountainFront: "#2b142b",
@@ -48,8 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     purple: {
       label: "VIOLET",
       title: "Violet Eclipse",
-      background:
-        "linear-gradient(180deg, #2b205d 0%, #8154ba 48%, #241632 100%)",
+      background: "linear-gradient(180deg, #2b205d 0%, #8154ba 48%, #241632 100%)",
       sun: "#e4c6ff",
       mountainBack: "#60418b",
       mountainFront: "#1b112b",
@@ -58,8 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     orange: {
       label: "ORANGE",
       title: "Akane Sunset",
-      background:
-        "linear-gradient(180deg, #633b54 0%, #ed956d 48%, #382039 100%)",
+      background: "linear-gradient(180deg, #633b54 0%, #ed956d 48%, #382039 100%)",
       sun: "#ffe0a6",
       mountainBack: "#a85b54",
       mountainFront: "#2b1729",
@@ -68,8 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     red: {
       label: "ROUGE",
       title: "Crimson Oni",
-      background:
-        "linear-gradient(180deg, #351528 0%, #b93751 48%, #24101f 100%)",
+      background: "linear-gradient(180deg, #351528 0%, #b93751 48%, #24101f 100%)",
       sun: "#ffb1b5",
       mountainBack: "#862e48",
       mountainFront: "#1c101d",
@@ -94,14 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const toast = $("#interaction-toast");
 
   let toastTimer;
-  let toastMessage = "";
-  let toastQueue = [];
   let scrollTicking = false;
 
   function showToast(message) {
     if (!toast) return;
 
-    toastMessage = message;
     toast.textContent = message;
     toast.classList.add("visible");
 
@@ -109,6 +100,17 @@ document.addEventListener("DOMContentLoaded", () => {
     toastTimer = setTimeout(() => {
       toast.classList.remove("visible");
     }, 2400);
+  }
+
+  function updatePreviewTitle() {
+    if (!previewTitle) return;
+
+    if (state.mode === "gunfight") {
+      previewTitle.textContent =
+        state.sky === "red" ? "Crimson Oni" : "Combat Horizon";
+    } else {
+      previewTitle.textContent = skySettings[state.sky].title;
+    }
   }
 
   function setMode(mode, notify = true) {
@@ -125,12 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         state.mode === "rp" ? "ROLEPLAY" : "GUNFIGHT";
     }
 
-    if (previewTitle) {
-      previewTitle.textContent =
-        state.mode === "gunfight"
-          ? (state.sky === "red" ? "Crimson Oni" : "Combat Horizon")
-          : skySettings[state.sky].title;
-    }
+    updatePreviewTitle();
 
     if (notify) {
       showToast(
@@ -165,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function setSky(sky, notify = true) {
-    if (!skySettings[sky]) return;
+    if (!Object.prototype.hasOwnProperty.call(skySettings, sky)) return;
 
     state.sky = sky;
     const settings = skySettings[sky];
@@ -186,19 +183,17 @@ document.addEventListener("DOMContentLoaded", () => {
       previewSun.style.boxShadow = `0 0 50px ${settings.glow}`;
     }
 
-    if (mountainBack) mountainBack.style.background = settings.mountainBack;
-    if (mountainFront) mountainFront.style.background = settings.mountainFront;
+    if (mountainBack) {
+      mountainBack.style.background = settings.mountainBack;
+    }
+
+    if (mountainFront) {
+      mountainFront.style.background = settings.mountainFront;
+    }
 
     if (previewColor) previewColor.textContent = settings.label;
 
-    if (previewTitle) {
-      previewTitle.textContent =
-        state.mode === "gunfight" && sky === "red"
-          ? "Crimson Oni"
-          : state.mode === "gunfight"
-            ? "Combat Horizon"
-            : settings.title;
-    }
+    updatePreviewTitle();
 
     const card = $("#preview-card");
     if (card) {
@@ -207,15 +202,24 @@ document.addEventListener("DOMContentLoaded", () => {
           ? "rgba(121,232,242,.45)"
           : sky === "red"
             ? "rgba(255,92,103,.5)"
-            : "rgba(255,117,189,.35)";
+            : sky === "purple"
+              ? "rgba(196,160,255,.45)"
+              : sky === "orange"
+                ? "rgba(255,174,111,.45)"
+                : "rgba(255,117,189,.35)";
     }
 
-    if (notify) showToast(`Couleur du ciel : ${settings.label.toLowerCase()}.`);
+    if (notify) {
+      showToast(`Couleur du ciel : ${settings.label.toLowerCase()}.`);
+    }
   }
 
   function setClouds(value, notify = false) {
     const parsed = Number(value);
-    state.clouds = Math.max(0, Math.min(100, Number.isFinite(parsed) ? parsed : 65));
+    state.clouds = Math.max(
+      0,
+      Math.min(100, Number.isFinite(parsed) ? parsed : 65)
+    );
 
     if (cloudRange) cloudRange.value = String(state.clouds);
     if (cloudValue) cloudValue.textContent = `${state.clouds}%`;
@@ -226,7 +230,9 @@ document.addEventListener("DOMContentLoaded", () => {
       cloud.style.transform = `scale(${0.6 + state.clouds / 250})`;
     });
 
-    if (notify) showToast(`Intensité des nuages : ${state.clouds}%.`);
+    if (notify) {
+      showToast(`Intensité des nuages : ${state.clouds}%.`);
+    }
   }
 
   function setEffects() {
@@ -246,27 +252,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   $$("[data-mode]").forEach(button => {
-    button.setAttribute("aria-pressed", String(button.dataset.mode === state.mode));
     button.addEventListener("click", () => setMode(button.dataset.mode));
   });
 
   $$("[data-time]").forEach(button => {
-    button.setAttribute("aria-pressed", String(button.dataset.time === state.time));
     button.addEventListener("click", () => setTime(button.dataset.time));
   });
 
   $$("[data-sky]").forEach(button => {
-    button.setAttribute("aria-pressed", String(button.dataset.sky === state.sky));
     button.addEventListener("click", () => setSky(button.dataset.sky));
   });
 
   if (cloudRange) {
-    cloudRange.addEventListener("input", event => {
-      setClouds(event.currentTarget.value);
+    cloudRange.addEventListener("input", () => {
+      setClouds(cloudRange.value);
     });
 
     cloudRange.addEventListener("change", () => {
-      showToast(`Intensité des nuages : ${state.clouds}%.`);
+      setClouds(cloudRange.value, true);
     });
   }
 
@@ -275,21 +278,30 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function applyPreset(sky) {
-    setSky(sky, false);
+    if (!Object.prototype.hasOwnProperty.call(skySettings, sky)) return;
 
-    if (sky === "red") {
-      setMode("gunfight", false);
-    } else {
-      setMode("rp", false);
-    }
+    setSky(sky, false);
+    setMode(sky === "red" ? "gunfight" : "rp", false);
 
     const studio = $("#studio");
-    if (studio) studio.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (studio) {
+      studio.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
 
     showToast(`${skySettings[sky].title} chargé dans le studio.`);
   }
 
   $$(".signature-card[data-preset]").forEach(card => {
+    card.style.cursor = "pointer";
+
+    if (!card.hasAttribute("tabindex")) {
+      card.setAttribute("tabindex", "0");
+    }
+
+    if (!card.hasAttribute("role")) {
+      card.setAttribute("role", "button");
+    }
+
     const activate = () => applyPreset(card.dataset.preset);
 
     card.addEventListener("click", activate);
@@ -376,6 +388,8 @@ document.addEventListener("DOMContentLoaded", () => {
     updateScrollUI();
   });
 
+  // Les animations restent facultatives : le contenu ne doit jamais
+  // rester invisible si IntersectionObserver n'est pas disponible.
   const revealTargets = [
     ".section-heading",
     ".mode-card",
@@ -387,8 +401,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ".manifesto-content"
   ];
 
-  if ("IntersectionObserver" in window &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if ("IntersectionObserver" in window && !reduceMotion) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -396,12 +413,30 @@ document.addEventListener("DOMContentLoaded", () => {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.08 });
 
     revealTargets.forEach(selector => {
       $$(selector).forEach(element => {
         element.classList.add("reveal-ready");
         observer.observe(element);
+      });
+    });
+
+    // Sécurise les éléments déjà visibles au chargement.
+    requestAnimationFrame(() => {
+      revealTargets.forEach(selector => {
+        $$(selector).forEach(element => {
+          if (element.getBoundingClientRect().top < window.innerHeight) {
+            element.classList.add("revealed");
+          }
+        });
+      });
+    });
+  } else {
+    revealTargets.forEach(selector => {
+      $$(selector).forEach(element => {
+        element.classList.remove("reveal-ready");
+        element.classList.add("revealed");
       });
     });
   }
