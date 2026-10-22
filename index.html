@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,47 +13,98 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="page-progress" aria-hidden="true">
+    <span id="page-progress-fill"></span>
+  </div>
+
+  <div class="interaction-toast" id="interaction-toast" role="status" aria-live="polite"></div>
   <div class="ambient ambient-one" aria-hidden="true"></div>
   <div class="ambient ambient-two" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Takayama accueil">
       <span class="brand-mark"><span>高</span><i>✳</i><span>山</span></span>
       <span class="brand-word">TAKAYAMA<span class="brand-dot">.</span><small>SAKURA GRAPHICS LAB</small></span>
     </a>
+
     <nav class="desktop-nav" aria-label="Navigation principale">
       <a class="nav-link active" href="#top">Accueil</a>
       <a class="nav-link" href="#studio">Le studio</a>
       <a class="nav-link" href="#univers">Univers</a>
+      <a class="nav-link" href="#inspiration-title">Signatures</a>
     </nav>
+
     <a class="header-cta" href="#studio">Créer mon pack <span>↗</span></a>
-    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
+
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-backdrop" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
+
       <div class="hero-content">
-        <div class="eyebrow"><span class="eyebrow-line"></span><span class="live-dot"></span> GRAPHICS CUSTOM LAB <span class="eyebrow-jp">日本の美</span></div>
-        <h1>DONNE VIE À<br>TON <span class="gradient-text">UNIVERS.</span></h1>
-        <p class="hero-copy">Le style est une signature. Compose ton ambiance, choisis tes couleurs et crée une identité graphique qui ne ressemble qu’à toi.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#studio">CRÉER MON PACK <span class="button-arrow">↗</span></a>
-          <a class="text-link" href="#univers"><span class="play-icon">▶</span> Explorer l’univers</a>
+        <div class="eyebrow">
+          <span class="eyebrow-line"></span>
+          <span class="live-dot"></span>
+          GRAPHICS CUSTOM LAB
+          <span class="eyebrow-jp">日本の美</span>
         </div>
-        <div class="hero-meta"><span><b>01</b> — TON STYLE</span><span class="meta-divider"></span><span>FAIT POUR FIVE M</span><span class="meta-kanji">桜</span></div>
+
+        <h1>DONNE VIE À<br>TON <span class="gradient-text">UNIVERS.</span></h1>
+
+        <p class="hero-copy">
+          Le style est une signature. Compose ton ambiance,
+          choisis tes couleurs et crée une identité graphique
+          qui ne ressemble qu’à toi.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#studio">
+            CRÉER MON PACK <span class="button-arrow">↗</span>
+          </a>
+          <a class="text-link" href="#univers">
+            <span class="play-icon">▶</span> Explorer l’univers
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span><b>01</b> — TON STYLE</span>
+          <span class="meta-divider"></span>
+          <span>FAIT POUR FIVE M</span>
+          <span class="meta-kanji">桜</span>
+        </div>
       </div>
+
       <div class="hero-art" aria-label="Illustration décorative japonaise">
         <div class="sun-disc"></div>
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
         <div class="art-kanji">影</div>
         <div class="art-stamp">高<br>山</div>
-        <div class="floating-label label-top"><span class="label-dot"></span> CUSTOM GRAPHICS <b>001</b></div>
-        <div class="floating-label label-bottom"><span>桜</span> YOUR WORLD. YOUR RULES.</div>
-        <div class="petal petal-a"></div><div class="petal petal-b"></div><div class="petal petal-c"></div><div class="petal petal-d"></div><div class="petal petal-e"></div>
+        <div class="floating-label label-top">
+          <span class="label-dot"></span> CUSTOM GRAPHICS <b>001</b>
+        </div>
+        <div class="floating-label label-bottom">
+          <span>桜</span> YOUR WORLD. YOUR RULES.
+        </div>
+        <div class="petal petal-a"></div>
+        <div class="petal petal-b"></div>
+        <div class="petal petal-c"></div>
+        <div class="petal petal-d"></div>
+        <div class="petal petal-e"></div>
       </div>
+
       <div class="vertical-caption">TOKYO INSPIRED · LOS SANTOS READY</div>
-      <div class="hero-bottom-line"><span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>TAKAYAMA® 2026</span></div>
+
+      <div class="hero-bottom-line">
+        <span>SCROLL TO EXPLORE</span>
+        <span class="scroll-line"></span>
+        <span>TAKAYAMA® 2026</span>
+      </div>
     </section>
 
     <section class="intro-strip" id="univers">
@@ -63,58 +115,376 @@
 
     <section class="studio-section" id="studio">
       <div class="section-heading">
-        <div><div class="section-kicker"><span>02 / LE STUDIO</span><span class="kicker-line"></span> PERSONNALISATION</div><h2>TON PACK.<br><span>TA SIGNATURE.</span></h2></div>
-        <p>Chaque détail compte. Commence par choisir ton univers, puis façonne une ambiance à ton image.</p>
+        <div>
+          <div class="section-kicker">
+            <span>02 / LE STUDIO</span>
+            <span class="kicker-line"></span>
+            PERSONNALISATION
+          </div>
+          <h2>TON PACK.<br><span>TA SIGNATURE.</span></h2>
+        </div>
+        <p>
+          Chaque détail compte. Commence par choisir ton univers,
+          puis façonne une ambiance à ton image.
+        </p>
       </div>
 
       <div class="builder-layout">
         <div class="builder-main">
-          <div class="step-heading"><span class="step-number">01</span><div><h3>Choisis ton terrain</h3><p>Quel style veux-tu créer aujourd’hui ?</p></div><span class="step-status">ÉTAPE 01</span></div>
+          <div class="step-heading">
+            <span class="step-number">01</span>
+            <div>
+              <h3>Choisis ton terrain</h3>
+              <p>Quel style veux-tu créer aujourd’hui ?</p>
+            </div>
+            <span class="step-status">ÉTAPE 01</span>
+          </div>
+
           <div class="mode-grid">
             <button class="mode-card selected" data-mode="rp" type="button">
-              <span class="mode-card-top"><span class="mode-index">A / 01</span><span class="mode-check">✓</span></span>
-              <span class="mode-symbol mode-symbol-rp">鳥</span><span class="mode-title">ROLEPLAY</span><span class="mode-desc">Immersion · Réalisme · Atmosphère</span><span class="mode-bottom">EXPLORER CE STYLE <b>↗</b></span>
+              <span class="mode-card-top">
+                <span class="mode-index">A / 01</span>
+                <span class="mode-check">✓</span>
+              </span>
+              <span class="mode-symbol mode-symbol-rp">鳥</span>
+              <span class="mode-title">ROLEPLAY</span>
+              <span class="mode-desc">Immersion · Réalisme · Atmosphère</span>
+              <span class="mode-bottom">EXPLORER CE STYLE <b>↗</b></span>
             </button>
+
             <button class="mode-card" data-mode="gunfight" type="button">
-              <span class="mode-card-top"><span class="mode-index">B / 02</span><span class="mode-check">✓</span></span>
-              <span class="mode-symbol mode-symbol-gf">龍</span><span class="mode-title">GUNFIGHT</span><span class="mode-desc">Impact · Contraste · Performance</span><span class="mode-bottom">EXPLORER CE STYLE <b>↗</b></span>
+              <span class="mode-card-top">
+                <span class="mode-index">B / 02</span>
+                <span class="mode-check">✓</span>
+              </span>
+              <span class="mode-symbol mode-symbol-gf">龍</span>
+              <span class="mode-title">GUNFIGHT</span>
+              <span class="mode-desc">Impact · Contraste · Performance</span>
+              <span class="mode-bottom">EXPLORER CE STYLE <b>↗</b></span>
             </button>
           </div>
 
-          <div class="step-heading step-heading-spaced"><span class="step-number">02</span><div><h3>Définis ton ambiance</h3><p>Choisis les bases de ton environnement visuel.</p></div><span class="step-status">ÉTAPE 02</span></div>
-          <div class="option-panel">
-            <div class="field-row"><div class="field-copy"><label>Cycle du temps</label><span>Une ambiance ou toutes les heures ?</span></div><div class="segmented" role="group" aria-label="Cycle du temps"><button class="segment active" data-time="onetime" type="button">ONE TIME <small>Journée</small></button><button class="segment" data-time="alltime" type="button">ALL TIME <small>24 heures</small></button></div></div>
-            <div class="field-divider"></div>
-            <div class="field-row"><div class="field-copy"><label>Couleur du ciel</label><span>Pose la couleur dominante de ton pack.</span></div><div class="color-options" role="group" aria-label="Couleur du ciel"><button class="color-swatch swatch-natural active" data-sky="natural" aria-label="Naturel" title="Naturel" type="button"><span></span></button><button class="color-swatch swatch-blue" data-sky="blue" aria-label="Bleu" title="Bleu" type="button"><span></span></button><button class="color-swatch swatch-pink" data-sky="pink" aria-label="Rose" title="Rose" type="button"><span></span></button><button class="color-swatch swatch-purple" data-sky="purple" aria-label="Violet" title="Violet" type="button"><span></span></button><button class="color-swatch swatch-orange" data-sky="orange" aria-label="Orange" title="Orange" type="button"><span></span></button><button class="color-swatch swatch-red" data-sky="red" aria-label="Rouge" title="Rouge" type="button"><span></span></button></div></div>
-            <div class="field-divider"></div>
-            <div class="field-row field-row-column"><div class="field-copy"><label>Intensité des nuages</label><span>Ajuste la présence des nuages dans ton ambiance.</span></div><div class="range-wrap"><input id="cloud-range" type="range" min="0" max="100" value="65"><div class="range-labels"><span>CIEL DÉGAGÉ</span><strong id="cloud-value">65%</strong><span>COUVERT</span></div></div></div>
-            <div class="field-divider"></div>
-            <div class="field-row"><div class="field-copy"><label>Effets atmosphériques</label><span>Active ou désactive les éléments décoratifs.</span></div><div class="toggle-list"><label class="toggle-option"><span>Étoiles filantes</span><input type="checkbox" id="shooting-toggle" checked><i></i></label><label class="toggle-option"><span>Traînées d’avion</span><input type="checkbox" id="trails-toggle"><i></i></label><label class="toggle-option"><span>Brouillard</span><input type="checkbox" id="fog-toggle"><i></i></label></div></div>
+          <div class="step-heading step-heading-spaced">
+            <span class="step-number">02</span>
+            <div>
+              <h3>Définis ton ambiance</h3>
+              <p>Choisis les bases de ton environnement visuel.</p>
+            </div>
+            <span class="step-status">ÉTAPE 02</span>
           </div>
-          <div class="builder-note"><span class="note-icon">✳</span><p><strong>À toi de jouer.</strong> Ceci est l’aperçu visuel du configurateur. Les réglages seront reliés à la génération des fichiers dans la prochaine phase.</p></div>
+
+          <div class="option-panel">
+            <div class="field-row">
+              <div class="field-copy">
+                <label>Cycle du temps</label>
+                <span>Une ambiance ou toutes les heures ?</span>
+              </div>
+
+              <div class="segmented" role="group" aria-label="Cycle du temps">
+                <button class="segment active" data-time="onetime" type="button">
+                  ONE TIME <small>Journée</small>
+                </button>
+                <button class="segment" data-time="alltime" type="button">
+                  ALL TIME <small>24 heures</small>
+                </button>
+              </div>
+            </div>
+
+            <div class="field-divider"></div>
+
+            <div class="field-row">
+              <div class="field-copy">
+                <label>Couleur du ciel</label>
+                <span>Pose la couleur dominante de ton pack.</span>
+              </div>
+
+              <div class="color-options" role="group" aria-label="Couleur du ciel">
+                <button class="color-swatch swatch-natural active" data-sky="natural" aria-label="Naturel" title="Naturel" type="button"><span></span></button>
+                <button class="color-swatch swatch-blue" data-sky="blue" aria-label="Bleu" title="Bleu" type="button"><span></span></button>
+                <button class="color-swatch swatch-pink" data-sky="pink" aria-label="Rose" title="Rose" type="button"><span></span></button>
+                <button class="color-swatch swatch-purple" data-sky="purple" aria-label="Violet" title="Violet" type="button"><span></span></button>
+                <button class="color-swatch swatch-orange" data-sky="orange" aria-label="Orange" title="Orange" type="button"><span></span></button>
+                <button class="color-swatch swatch-red" data-sky="red" aria-label="Rouge" title="Rouge" type="button"><span></span></button>
+              </div>
+            </div>
+
+            <div class="field-divider"></div>
+
+            <div class="field-row field-row-column">
+              <div class="field-copy">
+                <label for="cloud-range">Intensité des nuages</label>
+                <span>Ajuste la présence des nuages dans ton ambiance.</span>
+              </div>
+
+              <div class="range-wrap">
+                <input id="cloud-range" type="range" min="0" max="100" value="65">
+                <div class="range-labels">
+                  <span>CIEL DÉGAGÉ</span>
+                  <strong id="cloud-value">65%</strong>
+                  <span>COUVERT</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field-divider"></div>
+
+            <div class="field-row">
+              <div class="field-copy">
+                <label>Effets atmosphériques</label>
+                <span>Active ou désactive les éléments décoratifs.</span>
+              </div>
+
+              <div class="toggle-list">
+                <label class="toggle-option">
+                  <span>Étoiles filantes</span>
+                  <input type="checkbox" id="shooting-toggle" checked>
+                  <i></i>
+                </label>
+                <label class="toggle-option">
+                  <span>Traînées d’avion</span>
+                  <input type="checkbox" id="trails-toggle">
+                  <i></i>
+                </label>
+                <label class="toggle-option">
+                  <span>Brouillard</span>
+                  <input type="checkbox" id="fog-toggle">
+                  <i></i>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="builder-note">
+            <span class="note-icon">✳</span>
+            <p>
+              <strong>À toi de jouer.</strong>
+              Ceci est l’aperçu visuel du configurateur. Les réglages
+              seront reliés à la génération des fichiers dans la prochaine phase.
+            </p>
+          </div>
         </div>
 
         <aside class="preview-column">
           <div class="preview-card" id="preview-card">
-            <div class="preview-top"><span><i class="live-dot"></i> APERÇU DU STYLE</span><span class="preview-code">TKY—001</span></div>
-            <div class="preview-scene" id="preview-scene"><div class="preview-sun"></div><div class="preview-mountain mountain-back"></div><div class="preview-mountain mountain-front"></div><div class="preview-cloud cloud-one"></div><div class="preview-cloud cloud-two"></div><div class="preview-star star-one">✦</div><div class="preview-star star-two">✧</div><div class="preview-star star-three">✦</div><div class="preview-scene-label">SAKURA / SKY LAB</div><div class="preview-scene-kanji">空</div><div class="preview-scene-bottom"><span>TAKAYAMA</span><span>桜 2026</span></div></div>
-            <div class="preview-info"><div><span class="preview-label">TON UNIVERS</span><h3 id="preview-title">Sakura Horizon</h3></div><span class="preview-chip" id="preview-mode">ROLEPLAY</span></div>
-            <div class="preview-stats"><div><span>TIME CYCLE</span><strong id="preview-time">ONE TIME</strong></div><div><span>SKY COLOR</span><strong id="preview-color">NATUREL</strong></div><div><span>CLOUDS</span><strong id="preview-clouds">65%</strong></div></div>
-            <div class="preview-footer"><span><span class="preview-pulse"></span> LIVE PREVIEW</span><span>DESIGN YOUR WORLD ↗</span></div>
+            <div class="preview-top">
+              <span><i class="live-dot"></i> APERÇU DU STYLE</span>
+              <span class="preview-code">TKY—001</span>
+            </div>
+
+            <div class="preview-scene" id="preview-scene">
+              <div class="preview-sun"></div>
+              <div class="preview-mountain mountain-back"></div>
+              <div class="preview-mountain mountain-front"></div>
+              <div class="preview-cloud cloud-one"></div>
+              <div class="preview-cloud cloud-two"></div>
+              <div class="preview-star star-one">✦</div>
+              <div class="preview-star star-two">✧</div>
+              <div class="preview-star star-three">✦</div>
+              <div class="preview-scene-label">SAKURA / SKY LAB</div>
+              <div class="preview-scene-kanji">空</div>
+              <div class="preview-scene-bottom">
+                <span>TAKAYAMA</span>
+                <span>桜 2026</span>
+              </div>
+            </div>
+
+            <div class="preview-info">
+              <div>
+                <span class="preview-label">TON UNIVERS</span>
+                <h3 id="preview-title">Sakura Horizon</h3>
+              </div>
+              <span class="preview-chip" id="preview-mode">ROLEPLAY</span>
+            </div>
+
+            <div class="preview-stats">
+              <div>
+                <span>TIME CYCLE</span>
+                <strong id="preview-time">ONE TIME</strong>
+              </div>
+              <div>
+                <span>SKY COLOR</span>
+                <strong id="preview-color">NATUREL</strong>
+              </div>
+              <div>
+                <span>CLOUDS</span>
+                <strong id="preview-clouds">65%</strong>
+              </div>
+            </div>
+
+            <div class="preview-footer">
+              <span><span class="preview-pulse"></span> LIVE PREVIEW</span>
+              <span>DESIGN YOUR WORLD ↗</span>
+            </div>
           </div>
-          <div class="preview-tip"><span class="tip-mark">あ</span><div><strong>Inspiré par le Japon.</strong><p>Des ambiances fortes, une identité unique et le souci du détail.</p></div></div>
+
+          <div class="preview-tip">
+            <span class="tip-mark">あ</span>
+            <div>
+              <strong>Inspiré par le Japon.</strong>
+              <p>Des ambiances fortes, une identité unique et le souci du détail.</p>
+            </div>
+          </div>
         </aside>
       </div>
     </section>
 
+    <section class="inspiration-section" aria-labelledby="inspiration-title">
+      <div class="section-heading inspiration-heading">
+        <div>
+          <div class="section-kicker">
+            <span>03 / LES SIGNATURES</span>
+            <span class="kicker-line"></span>
+            TROUVE TON ÉNERGIE
+          </div>
+          <h2 id="inspiration-title">TROIS VIBES.<br><span>UNE INFINITÉ DE STYLES.</span></h2>
+        </div>
+        <p>
+          Une base d’inspiration pour imaginer ton propre rendu. Rien n’est figé :
+          les couleurs et les effets se combinent selon tes envies.
+        </p>
+      </div>
+
+      <div class="signature-grid">
+        <article class="signature-card signature-sakura" data-preset="pink" tabindex="0" role="button" aria-label="Appliquer le style Sakura Dream dans le studio">
+          <div class="signature-art">
+            <span class="signature-number">TKY / 001</span>
+            <span class="signature-kanji">桜</span>
+            <span class="signature-orb"></span>
+            <span class="signature-ridge ridge-one"></span>
+            <span class="signature-ridge ridge-two"></span>
+            <span class="signature-caption">SOFT LIGHT · DREAMY SKY</span>
+          </div>
+          <div class="signature-copy">
+            <div>
+              <span class="signature-tag">01 — CALME & IMMERSION</span>
+              <h3>SAKURA DREAM</h3>
+            </div>
+            <span class="signature-arrow">↗</span>
+          </div>
+          <p>Des dégradés doux, une lumière rosée et une ambiance cinématique.</p>
+        </article>
+
+        <article class="signature-card signature-oni" data-preset="red" tabindex="0" role="button" aria-label="Appliquer le style Crimson Oni dans le studio">
+          <div class="signature-art">
+            <span class="signature-number">TKY / 002</span>
+            <span class="signature-kanji">鬼</span>
+            <span class="signature-orb"></span>
+            <span class="signature-ridge ridge-one"></span>
+            <span class="signature-ridge ridge-two"></span>
+            <span class="signature-caption">HARD CONTRAST · RED CORE</span>
+          </div>
+          <div class="signature-copy">
+            <div>
+              <span class="signature-tag">02 — IMPACT & INTENSITÉ</span>
+              <h3>CRIMSON ONI</h3>
+            </div>
+            <span class="signature-arrow">↗</span>
+          </div>
+          <p>Des rouges profonds et des contrastes marqués pour un style agressif.</p>
+        </article>
+
+        <article class="signature-card signature-neon" data-preset="blue" tabindex="0" role="button" aria-label="Appliquer le style Yoru Mirage dans le studio">
+          <div class="signature-art">
+            <span class="signature-number">TKY / 003</span>
+            <span class="signature-kanji">夜</span>
+            <span class="signature-orb"></span>
+            <span class="signature-ridge ridge-one"></span>
+            <span class="signature-ridge ridge-two"></span>
+            <span class="signature-caption">NEON HAZE · ELECTRIC BLUE</span>
+          </div>
+          <div class="signature-copy">
+            <div>
+              <span class="signature-tag">03 — NÉON & MODERNITÉ</span>
+              <h3>YORU MIRAGE</h3>
+            </div>
+            <span class="signature-arrow">↗</span>
+          </div>
+          <p>Une palette électrique entre bleu froid, violet et atmosphère nocturne.</p>
+        </article>
+      </div>
+
+      <div class="inspiration-foot">
+        <span class="inspiration-mark">✳</span>
+        <span>CES VISUELS SONT DES PISTES CRÉATIVES, PAS DES PACKS PRÉDÉFINIS.</span>
+        <a href="#studio">PERSONNALISER LE MIEN <b>↗</b></a>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <div class="process-topline">
+        <span>04 / COMMENT ÇA MARCHE</span>
+        <span>DE L’IDÉE AU JEU</span>
+      </div>
+
+      <div class="process-title">
+        <h2>TON UNIVERS.<br><span>TES RÈGLES.</span></h2>
+        <p>
+          Takayama est pensé pour te laisser composer ton ambiance
+          sans te perdre dans des réglages compliqués.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-card">
+          <span class="process-index">01</span>
+          <span class="process-icon">選</span>
+          <h3>CHOISIS</h3>
+          <p>Roleplay ou Gunfight : pars de l’univers qui correspond à ta façon de jouer.</p>
+          <span class="process-line"></span>
+        </article>
+
+        <article class="process-card">
+          <span class="process-index">02</span>
+          <span class="process-icon">調</span>
+          <h3>PERSONNALISE</h3>
+          <p>Couleurs, nuages, effets et cycle du temps : compose ton identité visuelle.</p>
+          <span class="process-line"></span>
+        </article>
+
+        <article class="process-card">
+          <span class="process-index">03</span>
+          <span class="process-icon">創</span>
+          <h3>FAÇONNE</h3>
+          <p>Visualise ton ambiance, ajuste les détails et prépare ton futur pack sur mesure.</p>
+          <span class="process-line"></span>
+        </article>
+      </div>
+    </section>
+
     <section class="manifesto">
-      <div class="manifesto-backdrop" aria-hidden="true"></div><div class="manifesto-kanji">美</div>
-      <div class="manifesto-content"><div class="section-kicker"><span>03 / L’ESPRIT TAKAYAMA</span><span class="kicker-line"></span> MADE FOR GAMERS</div><h2>PLUS QU’UN STYLE.<br><span>UNE IDENTITÉ.</span></h2><p>Un univers façonné par tes choix. Une signature visuelle pensée pour se démarquer, en jeu comme dans les mémoires.</p><a class="button button-outline" href="#studio">FAÇONNER MON UNIVERS <span class="button-arrow">↗</span></a></div>
-      <div class="manifesto-seal"><span>高</span><span>山</span><i>✳</i><small>JAPAN / GAMING / GRAPHICS</small></div>
+      <div class="manifesto-backdrop" aria-hidden="true"></div>
+      <div class="manifesto-kanji">美</div>
+
+      <div class="manifesto-content">
+        <div class="section-kicker">
+          <span>05 / L’ESPRIT TAKAYAMA</span>
+          <span class="kicker-line"></span>
+          MADE FOR GAMERS
+        </div>
+        <h2>PLUS QU’UN STYLE.<br><span>UNE IDENTITÉ.</span></h2>
+        <p>
+          Un univers façonné par tes choix. Une signature visuelle pensée
+          pour se démarquer, en jeu comme dans les mémoires.
+        </p>
+        <a class="button button-outline" href="#studio">
+          FAÇONNER MON UNIVERS <span class="button-arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="manifesto-seal">
+        <span>高</span><span>山</span><i>✳</i>
+        <small>JAPAN / GAMING / GRAPHICS</small>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer"><a class="footer-brand" href="#top">TAKAYAMA<span>.</span></a><span>桜 — SAKURA GRAPHICS LAB</span><span>CRAFT YOUR OWN WORLD © 2026</span><a href="#top" class="back-top">RETOUR EN HAUT ↑</a></footer>
+  <footer class="site-footer">
+    <a class="footer-brand" href="#top">TAKAYAMA<span>.</span></a>
+    <span>桜 — SAKURA GRAPHICS LAB</span>
+    <span>CRAFT YOUR OWN WORLD © 2026</span>
+    <a href="#top" class="back-top">RETOUR EN HAUT ↑</a>
+  </footer>
+
   <script src="design.js"></script>
 </body>
 </html>
